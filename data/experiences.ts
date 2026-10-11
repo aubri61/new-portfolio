@@ -3,7 +3,7 @@ export const experiences: Experience[] = [
   {
     company: "소셜리액트",
     period: "2025.10 — 2026.02",
-    role: "Full-Stack Developer",
+    role: "Product Developer",
     description:
       "스포츠 클래스·이벤트 플랫폼 나다운의 사용자 웹·관리자 웹과 API를 개발했습니다. 인증 갱신 동시성 제어, 관리자 상태 관리와 클라이언트 최적화부터 운영 자동화까지 담당했습니다.",
     stack: [
@@ -30,7 +30,7 @@ export const experiences: Experience[] = [
   {
     company: "더로벨",
     period: "2023.01 — 2024.11",
-    role: "Full-Stack Developer",
+    role: "Product Developer",
     description:
       "의료 AI 추론 서비스를 웹 사용자 경험으로 구현하고 다국어 인터페이스와 데이터 대시보드를 개발했습니다.",
     stack: ["Next.js", "TypeScript", "Zustand", "Python", "Docker"],
@@ -46,7 +46,7 @@ export const experiences: Experience[] = [
   {
     company: "바카티오",
     period: "2021.09 — 2022.04",
-    role: "Full-Stack Developer · Co-Founder",
+    role: "Product Developer · Co-Founder",
     description:
       "2,000개 이상의 여행 장소 데이터와 외부 예약 API를 연동해 맞춤형 모바일 탐색 서비스를 개발했습니다.",
     stack: ["React Native", "React", "Express", "MongoDB", "AWS"],
@@ -63,7 +63,7 @@ export const experiences: Experience[] = [
   {
     company: "모두닥",
     period: "2021.03 — 2021.09",
-    role: "Full-Stack Developer · Intern",
+    role: "Product Developer · Intern",
     description:
       "의료 정보 플랫폼에서 홈 개인화, Hackle A/B 테스트, 병원 탐색·리뷰 개선 및 데이터 로딩 최적화에 참여했습니다.",
     stack: ["React", "React Native", "Django", "PostgreSQL"],

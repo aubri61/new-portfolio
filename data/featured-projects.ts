@@ -26,9 +26,9 @@ export const projects: Project[] = [
     id: "my-garage",
     name: "My Garage",
     englishName: "MY GARAGE",
-    category: "TOY PROJECT · FULL-STACK · SECURITY",
+    category: "TOY PROJECT · PRODUCT DEVELOPMENT · SECURITY",
     description: "개인 간(P2P) 차량 공유 및 보안 접근 제어 플랫폼.",
-    role: "개인 풀스택 토이 프로젝트",
+    role: "개인 프로젝트 / 제품 설계·개발",
     period: "2026.10 — 진행 중",
     stack: [
       "Next.js",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
         "media",
         "Gallery",
         "차량 공유부터 계약과 접근 권한까지 하나의 흐름으로.",
-        "개인 간 차량 공유 시나리오를 구현한 풀스택 토이 프로젝트입니다. 차량 탐색·예약·승인·양측 계약 동의를 거쳐 계약과 이용 기간에 따라 가상 차량 접근 권한을 부여하는 구조입니다.",
+        "개인 간 차량 공유 시나리오를 구현한 토이 프로젝트입니다. 차량 탐색·예약·승인·양측 계약 동의를 거쳐 계약과 이용 기간에 따라 가상 차량 접근 권한을 부여하는 구조입니다.",
         [
           "Kakao Maps 기반 차량 탐색",
           "예약 신청·소유자 승인·양측 계약 동의",
@@ -344,7 +344,7 @@ export const projects: Project[] = [
     category: "SPORTS · WEB & ADMIN",
     featured: true,
     description: "인증 안정성부터 관리자 UX와 운영 자동화까지 연결합니다.",
-    role: "1인 풀스택 개발 / Web·Admin·API 및 운영 설계",
+    role: "1인 프로덕트 개발 / Web·Admin·API 및 운영 설계",
     period: "2025.10 — 2026.02",
     stack: [
       "Next.js",

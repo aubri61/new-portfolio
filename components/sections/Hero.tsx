@@ -8,7 +8,7 @@ export default function Hero() {
       <Reveal hero>
         <div className="hero-topline">
           <p className="eyebrow">
-            <span className="status-dot" /> FULL-STACK DEVELOPER
+            <span className="status-dot" /> PRODUCT DEVELOPER
           </p>
           <span className="hero-location">BASED IN KOREA</span>
         </div>
@@ -19,7 +19,7 @@ export default function Hero() {
           <br />
           사용자 경험을 고민하는
           <br />
-          <span className="blue">풀스택 개발자</span>
+          <span className="blue">프로덕트 개발자</span>
           <br className="mobile-break" /> 박주언입니다
           <span className="blue">.</span>
         </h1>
