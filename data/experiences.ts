@@ -84,14 +84,14 @@ export const experiences: Experience[] = [
     role: "Fullstack Developer · Intern",
     description:
       "의료 정보 플랫폼에서 홈 개인화, Hackle A/B 테스트, 병원 탐색·리뷰 개선 및 DB 마이그레이션에 참여했습니다.",
-    stack: ["React Native", "AJAX", "Django", "PostgreSQL"],
+    stack: ["React Native", "AJAX", "Django", "Django ORM"],
     details: [
-      "데이터 정합성 우려가 있는 DB 구조 개선 및 마이그레이션",
+      "서비스 확장성을 고려한 데이터 모델 관계 재설계 및 마이그레이션",
       "PC 의사·병원 상세 페이지 디자인 및 리팩토링",
-      "병원 상세페이지 로딩 속도 9초 -> 2초 개선 (약 80%)",
+      "병원 이미지 조회 최적화와 초기 로딩 경험 개선",
       "분산된 데이터 조회 API 구조 개선 및 웹 On-Demand Loading",
       "Redux 최근 조회 기록·위치 정보 기반 홈 개인화",
-      "Hackle 실험군 UI 분기와 Firebase Anaylitics 이벤트 계측",
+      "Hackle 기반 UI 실험과 사용자 행동 이벤트 계측",
       "레거시 Django 코드 검토 및 API 수정",
     ],
   },

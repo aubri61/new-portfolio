@@ -46,7 +46,10 @@ export type ProjectSlide = {
   diagram?: ProjectDiagram;
   note?: string;
   code?: { language: string; content: string };
+  sections?: { title: string; description?: string; caseStudy?: { problem: string; solution: string; result: string } }[];
   caseStudy?: { problem: string; solution: string; result: string };
+  nadaunVisual?: "overview" | "operations" | "workflow" | "auth" | "session" | "admin" | "performance";
+  modoodocVisual?: "overview" | "migration" | "performance" | "admin" | "personalization";
   garageVisual?: "overview" | "authorization" | "sync" | "concurrency";
   experience?: {
     screens: { title: string; detail: string; image: string }[];
@@ -69,6 +72,7 @@ export type Project = {
   stack: string[];
   link?: { label: string; url: string };
   slides: ProjectSlide[];
+  gallery?: { title: string; description: string; image: string; alt: string }[];
   todos: string[];
 };
 export type Experience = {

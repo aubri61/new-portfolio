@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types/portfolio";
 import Reveal from "@/components/motion/Reveal";
 import ProjectCarousel from "./ProjectCarousel";
+import ProjectGallery from "./ProjectGallery";
 export default function ProjectSection({
   project: p,
   index,
@@ -60,6 +61,7 @@ export default function ProjectSection({
           </div>
         </div>
         <ProjectCarousel name={p.name} id={p.id} slides={p.slides} />
+        {p.gallery?.length ? <ProjectGallery name={p.name} items={p.gallery} /> : null}
       </article>
     </Reveal>
   );
