@@ -46,3 +46,9 @@ node scripts/validate-diagrams.mjs
 ```
 
 구현한 16개 다이어그램과 검증 범위는 `docs/diagram-implementation.md`에 정리했습니다. 신규 기술 상세는 사용자 제공 명세 기준이며 소스 검증 필요 항목은 TODO로 유지합니다.
+
+## 배포 CSS 검증
+
+Tailwind는 `@tailwindcss/postcss`와 `postcss.config.mjs`로 처리합니다. `pnpm build` 후 `verify-built-css.mjs`가 실제 HTML에 연결된 CSS의 레이아웃·도식·폰트·테마 규칙을 확인하며, 누락되면 빌드를 실패시킵니다.
+
+이전 배포에서 초기 템플릿 CSS가 재사용된 경우 수정 커밋을 반영하고 Vercel에서 Build Cache를 사용하지 않는 Redeploy를 실행합니다. Vercel Build Command는 `pnpm build`로 설정해 후속 검증도 실행되도록 합니다.

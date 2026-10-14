@@ -32,7 +32,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>
+      {/* Browser extensions may add body attributes before hydration (e.g. cz-shortcut-listen). */}
+      <body suppressHydrationWarning>
         <noscript>
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
