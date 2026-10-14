@@ -6,6 +6,7 @@ import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import OtherProjects from "@/components/sections/OtherProjects";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
+import ExperienceReturn from "@/components/motion/ExperienceReturn";
 export default function Home() {
   return (
     <>
@@ -24,6 +25,7 @@ export default function Home() {
         </main>
         <Footer />
       </div>
+      <ExperienceReturn />
     </>
   );
 }
