@@ -2067,3 +2067,34 @@ ul {
   .garage-carousel .slide-visual { padding: 22px 16px; }
   .garage-carousel .slide-copy h4 { font-size: 22px; }
 }
+
+.slide-sections { display:grid; gap:24px; margin-top:26px; }
+.slide-sections section { border-top:1px solid var(--border); padding-top:18px; }
+.slide-sections h5 { font-size:14px; line-height:1.7; color:var(--blue); margin:0 0 9px; }
+.slide-sections p { font-size:13px; line-height:1.85; color:var(--secondary); margin:0; word-break:keep-all; }
+
+/* Modoodoc: fit the final implementation and validation copy. */
+.slide:has(.slide-visual.modoodoc) .slide-sections { gap:14px; margin-top:18px; }
+.slide:has(.slide-visual.modoodoc) .slide-sections section { padding-top:12px; }
+.slide:has(.slide-visual.modoodoc) .slide-sections h5 { margin-bottom:6px; }
+
+/* Modoodoc copy: darker text for the description and implementation details. */
+.slide:has(.slide-visual.modoodoc) .slide-copy > p:not(.eyebrow),
+.slide:has(.slide-visual.modoodoc) .slide-copy li,
+.slide:has(.slide-visual.modoodoc) .slide-sections p,
+.slide:has(.slide-visual.modoodoc) .slide-case-study dd { color:#30313a; }
+
+/* Modoodoc: concise case studies in the same carousel as My Garage. */
+.slide:has(.slide-visual.modoodoc) .slide-copy h4 { max-width:none; font-size:22px; word-break:keep-all; }
+.slide:has(.slide-visual.modoodoc) .slide-sections .slide-case-study { margin-top:8px; }
+.slide:has(.slide-visual.modoodoc) .slide-sections .slide-case-study > div { margin:7px 0; }
+.slide:has(.slide-visual.modoodoc) .slide-sections .slide-case-study dd { font-size:12px; line-height:1.6; }
+
+.slide:has(.slide-visual.modoodoc) .slide-sections h5 { color:#17181c; }
+
+/* Nadaun: use the shared technical carousel with legible, compact copy. */
+.nadaun-carousel .slide-visual { background:#f2f3f5; }
+.nadaun-carousel .slide-copy h4 { font-size:22px; max-width:none; word-break:keep-all; }
+.nadaun-carousel .slide-copy > p:not(.eyebrow), .nadaun-carousel .slide-case-study dd, .nadaun-carousel .slide-copy li { color:#30313a; }
+.nadaun-carousel .slide-copy ul { gap:5px; }
+.nadaun-carousel .slide-case-study > div { margin:9px 0; }

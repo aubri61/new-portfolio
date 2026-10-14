@@ -8,6 +8,8 @@ import ArchitectureDiagram from "./ArchitectureDiagram";
 import CodeSnippet from "./CodeSnippet";
 import ProjectEvidence from "./ProjectEvidence";
 import GarageDiagram from "./GarageDiagram";
+import ModoodocDiagram from "./ModoodocDiagram";
+import NadaunDiagram from "./NadaunDiagram";
 export default function ProjectCarousel({
   slides,
   name,
@@ -45,7 +47,7 @@ export default function ProjectCarousel({
   }
   return (
     <div
-      className={`carousel ${id === "my-garage" ? "garage-carousel" : ""}`}
+      className={`carousel ${id === "nadaun" ? "garage-carousel nadaun-carousel" : (id === "my-garage" || id === "modoodoc") ? "garage-carousel" : ""}`}
       role="region"
       aria-roledescription="캐러셀"
       aria-label={`${name} 기술 소개`}
@@ -92,7 +94,7 @@ export default function ProjectCarousel({
           <motion.div
             key={index}
             id={`${id}-slide`}
-            className={`slide ${slide.image ? "slide-with-image" : slide.diagram || slide.garageVisual || slide.experience || slide.verification ? "slide-with-diagram" : ""}`}
+            className={`slide ${slide.image ? "slide-with-image" : slide.diagram || slide.garageVisual || slide.modoodocVisual || slide.nadaunVisual || slide.experience || slide.verification ? "slide-with-diagram" : ""}`}
             role="group"
             aria-roledescription="슬라이드"
             aria-label={`${index + 1} / ${slides.length}: ${slide.label}`}
@@ -117,11 +119,24 @@ export default function ProjectCarousel({
                   <div><dt>Result</dt><dd>{slide.caseStudy.result}</dd></div>
                 </dl>
               )}
-              <ul>
+              {slide.sections && (
+                <div className="slide-sections">
+                  {slide.sections.map(section => <section key={section.title}>
+                    <h5>{section.title}</h5>
+                    {section.description && <p>{section.description}</p>}
+                    {section.caseStudy && <dl className="slide-case-study">
+                      <div><dt>Problem</dt><dd>{section.caseStudy.problem}</dd></div>
+                      <div><dt>Solution</dt><dd>{section.caseStudy.solution}</dd></div>
+                      <div><dt>Result</dt><dd>{section.caseStudy.result}</dd></div>
+                    </dl>}
+                  </section>)}
+                </div>
+              )}
+              {slide.points.length > 0 && <ul>
                 {slide.points.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
-              </ul>
+              </ul>}
               {slide.note && <p className="slide-note">{slide.note}</p>}
 
             </div>
@@ -152,6 +167,10 @@ export default function ProjectCarousel({
                       원본 크게 보기 ↗
                     </a>
                   </div>
+                ) : slide.nadaunVisual ? (
+                  <NadaunDiagram variant={slide.nadaunVisual} />
+                ) : slide.modoodocVisual ? (
+                  <ModoodocDiagram variant={slide.modoodocVisual} />
                 ) : slide.garageVisual ? (
                   <GarageDiagram variant={slide.garageVisual} />
                 ) : slide.diagram ? (

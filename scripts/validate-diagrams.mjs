@@ -13,7 +13,9 @@ function readData(path, imports = {}) {
   return dataModule.exports;
 }
 const {diagrams} = readData('data/diagrams.ts');
-const {projects} = readData('data/featured-projects.ts', {'./diagrams':{diagrams}});
+const {modoodoc} = readData('data/modoodoc.ts');
+const {nadaun, nadaunLighthouse} = readData('data/nadaun.ts');
+const {projects} = readData('data/featured-projects.ts', {'./diagrams':{diagrams}, './modoodoc':{modoodoc}, './nadaun':{nadaun}});
 let graphCount = 0;
 let edgeCount = 0;
 for (const [key,diagram] of Object.entries(diagrams)) {
@@ -47,19 +49,32 @@ const mono = diagrams.monorepo.graphs[0];
 assert.ok(mono.edges.some(e=>e.from==='web' && e.to==='server'));
 assert.ok(mono.edges.some(e=>e.from==='admin' && e.to==='server'));
 assert.ok(!mono.edges.some(e=>e.from==='web' && e.to==='admin'));
-const personal = diagrams.personalization.graphs[0];
-assert.ok(personal.edges.filter(e=>e.to==='home').length===2, 'Personalization must merge both data paths');
-assert.ok(!personal.stages.flat().some(n=>n.label.includes('Hackle')), 'Hackle must stay outside the data pipeline');
-const garage = diagrams.garageArchitecture.graphs;
-assert.deepEqual(Array.from(garage,g=>g.tone), ['rest','event']);
 for(const project of projects){
   assert.ok(project.slides.length>=4);
   assert.equal(project.slides[0].kind,'overview');
-  assert.ok(project.slides[0].diagram && project.slides[0].visualIntro, `${project.id}: summary must include architecture and intro`);
-  assert.equal(project.slides.at(-1).kind,'media');
-  project.slides.filter(s=>s.kind!=='media').forEach(slide=>assert.ok(slide.diagram, `${project.id}/${slide.label}: missing concrete diagram`));
+  const hasVisual = slide => slide.diagram || slide.garageVisual || slide.modoodocVisual || slide.nadaunVisual || slide.experience || slide.verification || slide.image;
+  assert.ok(hasVisual(project.slides[0]), `${project.id}: missing overview visual`);
+  project.slides.forEach(slide=>assert.ok(hasVisual(slide) || slide.kind==='media', `${project.id}/${slide.label}: missing visual`));
 }
-assert.deepEqual(Array.from(projects, project=>project.id), ['my-garage','modoodoc','vacatio','nadaun']);
-assert.equal(projects.find(project=>project.id==='modoodoc').slides.length,6);
+assert.deepEqual(Array.from(projects, project=>project.id), ['my-garage','nadaun','modoodoc','vacatio']);
+assert.equal(projects.find(project=>project.id==='modoodoc').slides.length,5);
 assert.equal(projects.length,4);
 console.log(`Validated ${Object.keys(diagrams).length} diagrams, ${graphCount} graphs, ${edgeCount} directed connections, and all ${projects.length} active project carousels.`);
+
+assert.deepEqual(Array.from(modoodoc.slides, s=>s.label), ['Overview','DB Migration','Performance','Admin','Personalization']);
+assert.equal(new Set(modoodoc.slides.map(s=>s.modoodocVisual)).size, 5);
+assert.equal(modoodoc.slides[0].caseStudy, undefined);
+modoodoc.slides.slice(1,4).forEach(s=>assert.ok(s.caseStudy?.problem && s.caseStudy?.solution && s.caseStudy?.result));
+assert.equal(modoodoc.slides[4].sections.length, 2);
+assert.equal(modoodoc.slides[4].caseStudy, undefined);
+modoodoc.slides[4].sections.forEach(s=>assert.ok(s.caseStudy?.problem && s.caseStudy?.solution && s.caseStudy?.result));
+assert.ok(!/80%|1:N|1 : N|9초|2초|20만|100만|HospitalListOptimizer|hospital_nearby|확인 예정|준비 중/.test(JSON.stringify(modoodoc)), 'Public company content must exclude internal identifiers and restricted metrics');
+
+assert.deepEqual(Array.from(nadaun.slides,s=>s.label), ['Overview','CI/CD & Operations','Service Workflow','Authentication','Session Stability','Admin UX','Performance & SEO']);
+assert.equal(nadaun.slides[0].caseStudy,undefined);
+nadaun.slides.slice(1).forEach(s=>assert.ok(s.caseStudy?.problem && s.caseStudy?.solution && s.caseStudy?.result));
+assert.deepEqual(Array.from(nadaunLighthouse.scores,s=>s.value),[95,98,73,92]);
+assert.equal(nadaunLighthouse.lcp,'1.6초');
+assert.equal(nadaunLighthouse.cls,'0');
+assert.ok(!nadaun.slides.some(s=>s.label==='Gallery'));
+nadaun.gallery.forEach(item=>assert.ok(fs.existsSync(`public${item.image}`)));
