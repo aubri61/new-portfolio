@@ -1,0 +1,86 @@
+{
+  "environment": "Local production Chrome, 390x844, fresh context, CPU 4x, no network throttle, API/map fixtures, 3s observation",
+  "samples": [
+    {
+      "path": "/login",
+      "run": 1,
+      "lcp": 228,
+      "lcpElement": "H1",
+      "cls": 0,
+      "shifts": [],
+      "fcp": 228,
+      "ttfb": 20.299999952316284
+    },
+    {
+      "path": "/login",
+      "run": 2,
+      "lcp": 120,
+      "lcpElement": "H1",
+      "cls": 0,
+      "shifts": [],
+      "fcp": 120,
+      "ttfb": 3.5
+    },
+    {
+      "path": "/login",
+      "run": 3,
+      "lcp": 124,
+      "lcpElement": "H1",
+      "cls": 0,
+      "shifts": [],
+      "fcp": 124,
+      "ttfb": 3.399999976158142
+    },
+    {
+      "path": "/renter",
+      "run": 1,
+      "lcp": 704,
+      "lcpElement": "H2",
+      "cls": 0.0023668362855558222,
+      "shifts": [
+        {
+          "value": 0.0023668362855558222,
+          "nodes": [
+            "platform-pill"
+          ]
+        }
+      ],
+      "fcp": 104,
+      "ttfb": 3.6999999284744263
+    },
+    {
+      "path": "/renter",
+      "run": 2,
+      "lcp": 680,
+      "lcpElement": "H2",
+      "cls": 0.0023668362855558222,
+      "shifts": [
+        {
+          "value": 0.0023668362855558222,
+          "nodes": [
+            "platform-pill"
+          ]
+        }
+      ],
+      "fcp": 96,
+      "ttfb": 4.700000047683716
+    },
+    {
+      "path": "/renter",
+      "run": 3,
+      "lcp": 588,
+      "lcpElement": "H2",
+      "cls": 0.0023668362855558222,
+      "shifts": [
+        {
+          "value": 0.0023668362855558222,
+          "nodes": [
+            "platform-pill"
+          ]
+        }
+      ],
+      "fcp": 88,
+      "ttfb": 3
+    }
+  ]
+}

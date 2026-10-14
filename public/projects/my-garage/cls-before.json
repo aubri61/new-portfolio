@@ -1,0 +1,59 @@
+{
+  "environment": "Local production Chrome, 390x844, fresh context, CPU 4x, no network throttle, API/map fixtures, 3s observation",
+  "samples": [
+    {
+      "path": "/login",
+      "run": 1,
+      "lcp": 144,
+      "lcpElement": "H1",
+      "cls": 0,
+      "fcp": 144,
+      "ttfb": 7
+    },
+    {
+      "path": "/login",
+      "run": 2,
+      "lcp": 112,
+      "lcpElement": "H1",
+      "cls": 0,
+      "fcp": 112,
+      "ttfb": 3.5999999046325684
+    },
+    {
+      "path": "/login",
+      "run": 3,
+      "lcp": 120,
+      "lcpElement": "H1",
+      "cls": 0,
+      "fcp": 120,
+      "ttfb": 6.399999976158142
+    },
+    {
+      "path": "/renter",
+      "run": 1,
+      "lcp": 620,
+      "lcpElement": "H2",
+      "cls": 0.2582936827874983,
+      "fcp": 120,
+      "ttfb": 3.299999952316284
+    },
+    {
+      "path": "/renter",
+      "run": 2,
+      "lcp": 548,
+      "lcpElement": "H2",
+      "cls": 0.2582936827874983,
+      "fcp": 92,
+      "ttfb": 2.5
+    },
+    {
+      "path": "/renter",
+      "run": 3,
+      "lcp": 580,
+      "lcpElement": "H2",
+      "cls": 0.2582936827874983,
+      "fcp": 104,
+      "ttfb": 3.700000047683716
+    }
+  ]
+}

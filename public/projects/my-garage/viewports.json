@@ -1,0 +1,422 @@
+[
+  {
+    "path": "/renter",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": "288px"
+  },
+  {
+    "path": "/owner",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/vehicles/register",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/bookings?mode=renter",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/contracts/401",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/digital-key?mode=renter",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security-lab?mode=renter",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/login",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/signup",
+    "width": 320,
+    "scrollWidth": 320,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/renter",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": "328px"
+  },
+  {
+    "path": "/owner",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/vehicles/register",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/bookings?mode=renter",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/contracts/401",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/digital-key?mode=renter",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security-lab?mode=renter",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/login",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/signup",
+    "width": 360,
+    "scrollWidth": 360,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/renter",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": "358px"
+  },
+  {
+    "path": "/owner",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/vehicles/register",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/bookings?mode=renter",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/contracts/401",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/digital-key?mode=renter",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security-lab?mode=renter",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/login",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/signup",
+    "width": 390,
+    "scrollWidth": 390,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/renter",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": "412px"
+  },
+  {
+    "path": "/owner",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/vehicles/register",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/bookings?mode=renter",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/contracts/401",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/digital-key?mode=renter",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security-lab?mode=renter",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/login",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/signup",
+    "width": 768,
+    "scrollWidth": 768,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/renter",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": "668px"
+  },
+  {
+    "path": "/owner",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/vehicles/register",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/bookings?mode=renter",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/contracts/401",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/digital-key?mode=renter",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security-lab?mode=renter",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/login",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/signup",
+    "width": 1024,
+    "scrollWidth": 1024,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/renter",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": "262.781px 262.797px"
+  },
+  {
+    "path": "/owner",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/vehicles/register",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/bookings?mode=renter",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/contracts/401",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/digital-key?mode=renter",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security-lab?mode=renter",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/security",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/login",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  },
+  {
+    "path": "/signup",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "outside": [],
+    "cardColumns": null
+  }
+]

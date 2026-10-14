@@ -1,11 +1,13 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowLeft, ArrowRight, ImageIcon } from "lucide-react";
 import type { ProjectSlide } from "@/types/portfolio";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import CodeSnippet from "./CodeSnippet";
+import ProjectEvidence from "./ProjectEvidence";
+import GarageDiagram from "./GarageDiagram";
 export default function ProjectCarousel({
   slides,
   name,
@@ -18,7 +20,21 @@ export default function ProjectCarousel({
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const start = useRef<{ x: number; y: number } | null>(null);
+  const tabs = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  useEffect(() => {
+    const list = tabs.current;
+    const active = list?.children[index];
+    if (!list || !active) return;
+    const bounds = list.getBoundingClientRect();
+    const selected = active.getBoundingClientRect();
+    if (selected.left < bounds.left || selected.right > bounds.right) {
+      list.scrollTo({
+        left: list.scrollLeft + selected.left - bounds.left - 16,
+        behavior: reduced ? "instant" : "smooth",
+      });
+    }
+  }, [index, reduced]);
   if (!slides.length) return null;
   const slide = slides[index];
   function go(next: number) {
@@ -29,7 +45,7 @@ export default function ProjectCarousel({
   }
   return (
     <div
-      className="carousel"
+      className={`carousel ${id === "my-garage" ? "garage-carousel" : ""}`}
       role="region"
       aria-roledescription="캐러셀"
       aria-label={`${name} 기술 소개`}
@@ -44,7 +60,7 @@ export default function ProjectCarousel({
         }
       }}
     >
-      <div className="carousel-tabs" role="group" aria-label="슬라이드 선택">
+      <div ref={tabs} className="carousel-tabs" role="group" aria-label="슬라이드 선택">
         {slides.map((s, i) => (
           <button
             key={`${s.label}-${i}`}
@@ -60,8 +76,6 @@ export default function ProjectCarousel({
       </div>
       <div
         className="carousel-viewport"
-        tabIndex={0}
-        aria-label="좌우 방향키로 슬라이드 이동"
         onTouchStart={(e) => {
           start.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         }}
@@ -78,7 +92,7 @@ export default function ProjectCarousel({
           <motion.div
             key={index}
             id={`${id}-slide`}
-            className={`slide ${slide.image ? "slide-with-image" : slide.diagram ? "slide-with-diagram" : ""}`}
+            className={`slide ${slide.image ? "slide-with-image" : slide.diagram || slide.garageVisual || slide.experience || slide.verification ? "slide-with-diagram" : ""}`}
             role="group"
             aria-roledescription="슬라이드"
             aria-label={`${index + 1} / ${slides.length}: ${slide.label}`}
@@ -87,61 +101,85 @@ export default function ProjectCarousel({
             exit={{ opacity: 0, x: reduced ? 0 : direction * -20 }}
             transition={{ duration: reduced ? 0 : 0.4 }}
           >
-            <div className="slide-copy">
+            <div
+              className="slide-copy"
+              tabIndex={0}
+              role="region"
+              aria-label={`${name} ${slide.label} 설명`}
+            >
               <p className="eyebrow blue">{slide.label.toUpperCase()}</p>
               <h4>{slide.title}</h4>
               <p>{slide.description}</p>
+              {slide.caseStudy && (
+                <dl className="slide-case-study">
+                  <div><dt>Problem</dt><dd>{slide.caseStudy.problem}</dd></div>
+                  <div><dt>Solution</dt><dd>{slide.caseStudy.solution}</dd></div>
+                  <div><dt>Result</dt><dd>{slide.caseStudy.result}</dd></div>
+                </dl>
+              )}
               <ul>
                 {slide.points.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
               </ul>
               {slide.note && <p className="slide-note">{slide.note}</p>}
+
             </div>
-            <div className={`slide-visual ${id}`}>
-              {slide.visualIntro && (
-                <p className="visual-intro">{slide.visualIntro}</p>
-              )}
-              {slide.image ? (
-                <div className="project-image">
-                  <Image
-                    src={slide.image}
-                    alt={slide.imageAlt || `${name} 서비스 화면`}
-                    fill
-                    sizes="(max-width: 760px) 90vw, 750px"
-                  />
-                  <a
-                    className="image-original"
-                    href={slide.image}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    원본 크게 보기 ↗
-                  </a>
-                </div>
-              ) : slide.diagram ? (
-                <ArchitectureDiagram diagram={slide.diagram} />
-              ) : slide.code ? (
-                <CodeSnippet {...slide.code} />
-              ) : slide.kind === "media" ? (
-                <div className="image-placeholder">
-                  <ImageIcon size={30} strokeWidth={1.2} />
-                  <span className="placeholder-brand">
-                    {name}
-                    <span className="blue">.</span>
-                  </span>
-                  <p>
-                    {id === "my-garage"
-                      ? "PROJECT IN PROGRESS"
-                      : "SCREENSHOT COMING SOON"}
+            <div
+              className={`slide-visual ${id}`}
+              tabIndex={0}
+              role="region"
+              aria-label={`${name} ${slide.label} 시각 자료`}
+            >
+              <div className="slide-visual-content">
+                {slide.visualIntro && (
+                  <p className="visual-intro">{slide.visualIntro}</p>
+                )}
+                {slide.image ? (
+                  <div className="project-image">
+                    <Image
+                      src={slide.image}
+                      alt={slide.imageAlt || `${name} 서비스 화면`}
+                      fill
+                      sizes="(max-width: 760px) 90vw, 750px"
+                    />
+                    <a
+                      className="image-original"
+                      href={slide.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      원본 크게 보기 ↗
+                    </a>
+                  </div>
+                ) : slide.garageVisual ? (
+                  <GarageDiagram variant={slide.garageVisual} />
+                ) : slide.diagram ? (
+                  <ArchitectureDiagram diagram={slide.diagram} />
+                ) : slide.experience || slide.verification ? (
+                  <ProjectEvidence slide={slide} />
+                ) : slide.code ? (
+                  <CodeSnippet {...slide.code} />
+                ) : slide.kind === "media" ? (
+                  <div className="image-placeholder">
+                    <ImageIcon size={30} strokeWidth={1.2} />
+                    <span className="placeholder-brand">
+                      {name}
+                      <span className="blue">.</span>
+                    </span>
+                    <p>
+                      {id === "my-garage"
+                        ? "PROJECT IN PROGRESS"
+                        : "SCREENSHOT COMING SOON"}
+                    </p>
+                    <small>실제 프로젝트 이미지 준비 중</small>
+                  </div>
+                ) : (
+                  <p className="visual-unavailable">
+                    구체적인 기술 흐름 자료 확인 중
                   </p>
-                  <small>실제 프로젝트 이미지 준비 중</small>
-                </div>
-              ) : (
-                <p className="visual-unavailable">
-                  구체적인 기술 흐름 자료 확인 중
-                </p>
-              )}
+                )}
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -150,7 +188,8 @@ export default function ProjectCarousel({
         <span className="mono" aria-live="polite" aria-atomic="true">
           {String(index + 1).padStart(2, "0")}{" "}
           <span className="muted">
-            / {String(slides.length).padStart(2, "0")} · {slide.label}
+            / {String(slides.length).padStart(2, "0")}
+            <span className="carousel-current-label"> · {slide.label}</span>
           </span>
         </span>
         <div className="carousel-arrows">
