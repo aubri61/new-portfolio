@@ -528,14 +528,39 @@ ul {
 }
 .carousel-viewport {
   touch-action: pan-y;
+  height: clamp(420px, 68svh, 650px);
   overflow: hidden;
 }
 .slide {
-  min-height: 362px;
+  height: 100%;
+  min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1fr);
+}
+.slide-copy,
+.slide-visual {
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+:is(.slide-copy, .slide-visual, .carousel-tabs)::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+:is(.slide-copy, .slide-visual, .carousel-tabs)::-webkit-scrollbar-track {
+  background: transparent;
+}
+:is(.slide-copy, .slide-visual, .carousel-tabs)::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
 }
 .slide-copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding: 39px 35px;
 }
 .slide-copy .eyebrow {
@@ -589,12 +614,15 @@ ul {
 .slide-visual {
   min-width: 0;
   background: #f2f3f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 25px;
   position: relative;
   border-left: 1px solid var(--border);
+}
+.slide-visual-content {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .slide-visual.nadaun {
   background: #eff3f0;
@@ -639,23 +667,28 @@ ul {
   margin-top: 10px;
 }
 .carousel-footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   border-top: 1px solid var(--border);
   padding: 13px 25px;
 }
 .carousel-footer .mono {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 13px;
   color: var(--blue);
 }
 .carousel-arrows {
+  grid-column: 2;
   display: flex;
   gap: 7px;
 }
 .carousel-arrows button {
-  width: 33px;
-  height: 33px;
+  width: 44px;
+  height: 44px;
   background: white;
   border: 1px solid var(--border);
   border-radius: 50%;
@@ -1305,11 +1338,13 @@ ul {
   }
   .slide {
     grid-template-columns: 1fr;
-    min-height: 0;
+    grid-template-rows: minmax(0, 0.45fr) minmax(0, 0.55fr);
+  }
+  .carousel-viewport {
+    height: clamp(360px, 65svh, 560px);
   }
   .slide-copy {
     padding: 26px 24px;
-    min-height: 305px;
   }
   .slide-copy h4 {
     max-width: none;
@@ -1322,7 +1357,6 @@ ul {
     border-left: 0;
     border-top: 1px solid var(--border);
     padding: 22px;
-    min-height: 245px;
   }
   .project-image {
     height: 240px;
@@ -1518,14 +1552,12 @@ ul {
   }
   .slide-copy {
     padding: 25px 21px;
-    min-height: 335px;
   }
   .slide-copy h4 {
     font-size: 23px;
   }
   .slide-visual {
     padding: 16px;
-    min-height: 230px;
   }
   .architecture-node strong {
     font-size: 12px;
@@ -1614,10 +1646,6 @@ ul {
 /* Larger service previews: portrait screenshots retain their full contents. */
 .slide.slide-with-image {
   grid-template-columns: 0.72fr 1.28fr;
-  min-height: 650px;
-}
-.slide-with-image .slide-copy {
-  align-self: center;
 }
 .slide-with-image .slide-visual {
   padding: 24px;
@@ -1662,7 +1690,6 @@ ul {
 @media (max-width: 760px) {
   .slide.slide-with-image {
     grid-template-columns: 1fr;
-    min-height: 0;
   }
   .slide-with-image .slide-copy {
     min-height: 0;
@@ -1687,18 +1714,19 @@ ul {
 }
 /* Semantic flow diagrams: HTML labels + SVG arrows between adjacent stages. */
 .carousel-tabs {
-  flex-wrap: wrap;
-  gap: 8px 22px;
+  flex-wrap: nowrap;
+  gap: 22px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
 }
 .carousel-tabs button {
-  white-space: normal;
+  flex-shrink: 0;
+  white-space: nowrap;
   text-align: left;
 }
 .slide-with-diagram {
   grid-template-columns: 0.85fr 1.15fr;
-}
-.slide-with-diagram .slide-copy {
-  align-self: center;
 }
 .slide-with-diagram .slide-visual {
   background: #f8f9fb;
@@ -1981,6 +2009,9 @@ ul {
   .carousel-tabs {
     gap: 0 14px;
   }
+  .carousel-current-label {
+    display: none;
+  }
   .carousel-tabs button {
     font-size: 12px;
   }
@@ -2010,7 +2041,7 @@ ul {
   font-size: 16px;
   line-height: 1.85;
 }
-.slide-visual:has(.visual-intro) {
+.slide-visual-content:has(.visual-intro) {
   flex-direction: column;
   align-items: stretch;
 }

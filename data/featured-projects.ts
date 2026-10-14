@@ -24,8 +24,8 @@ function slide(
 export const projects: Project[] = [
   {
     id: "my-garage",
-    name: "My Garage",
-    englishName: "MY GARAGE",
+    name: "P2P 차량 공유 및 원격 제어 시뮬레이션",
+    englishName: "P2P Car sharing and remote control simulation",
     category: "TOY PROJECT · PRODUCT DEVELOPMENT · SECURITY",
     description: "개인 간(P2P) 차량 공유 및 보안 접근 제어 플랫폼.",
     role: "개인 프로젝트 / 제품 설계·개발",
