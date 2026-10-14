@@ -46,6 +46,16 @@ export type ProjectSlide = {
   diagram?: ProjectDiagram;
   note?: string;
   code?: { language: string; content: string };
+  caseStudy?: { problem: string; solution: string; result: string };
+  garageVisual?: "overview" | "authorization" | "sync" | "concurrency";
+  experience?: {
+    screens: { title: string; detail: string; image: string }[];
+    metric: { label: string; before: string; after: string };
+  };
+  verification?: {
+    steps: string[];
+    results: { area: string; result: string; scope: string }[];
+  };
 };
 export type Project = {
   id: string;

@@ -6,6 +6,8 @@ import { ArrowLeft, ArrowRight, ImageIcon } from "lucide-react";
 import type { ProjectSlide } from "@/types/portfolio";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import CodeSnippet from "./CodeSnippet";
+import ProjectEvidence from "./ProjectEvidence";
+import GarageDiagram from "./GarageDiagram";
 export default function ProjectCarousel({
   slides,
   name,
@@ -43,7 +45,7 @@ export default function ProjectCarousel({
   }
   return (
     <div
-      className="carousel"
+      className={`carousel ${id === "my-garage" ? "garage-carousel" : ""}`}
       role="region"
       aria-roledescription="캐러셀"
       aria-label={`${name} 기술 소개`}
@@ -90,7 +92,7 @@ export default function ProjectCarousel({
           <motion.div
             key={index}
             id={`${id}-slide`}
-            className={`slide ${slide.image ? "slide-with-image" : slide.diagram ? "slide-with-diagram" : ""}`}
+            className={`slide ${slide.image ? "slide-with-image" : slide.diagram || slide.garageVisual || slide.experience || slide.verification ? "slide-with-diagram" : ""}`}
             role="group"
             aria-roledescription="슬라이드"
             aria-label={`${index + 1} / ${slides.length}: ${slide.label}`}
@@ -108,12 +110,20 @@ export default function ProjectCarousel({
               <p className="eyebrow blue">{slide.label.toUpperCase()}</p>
               <h4>{slide.title}</h4>
               <p>{slide.description}</p>
+              {slide.caseStudy && (
+                <dl className="slide-case-study">
+                  <div><dt>Problem</dt><dd>{slide.caseStudy.problem}</dd></div>
+                  <div><dt>Solution</dt><dd>{slide.caseStudy.solution}</dd></div>
+                  <div><dt>Result</dt><dd>{slide.caseStudy.result}</dd></div>
+                </dl>
+              )}
               <ul>
                 {slide.points.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
               </ul>
               {slide.note && <p className="slide-note">{slide.note}</p>}
+
             </div>
             <div
               className={`slide-visual ${id}`}
@@ -142,8 +152,12 @@ export default function ProjectCarousel({
                       원본 크게 보기 ↗
                     </a>
                   </div>
+                ) : slide.garageVisual ? (
+                  <GarageDiagram variant={slide.garageVisual} />
                 ) : slide.diagram ? (
                   <ArchitectureDiagram diagram={slide.diagram} />
+                ) : slide.experience || slide.verification ? (
+                  <ProjectEvidence slide={slide} />
                 ) : slide.code ? (
                   <CodeSnippet {...slide.code} />
                 ) : slide.kind === "media" ? (
