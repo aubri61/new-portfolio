@@ -30,13 +30,14 @@ export default function ProjectSection({
           </div>
           {p.link && (
             <a
-              className="round-link"
+              className={`round-link${p.id === "nadaun" ? " nadaun-service-link" : ""}`}
               href={p.link.url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${p.name} ${p.link.label}`}
             >
-              <ArrowUpRight size={23} />
+              {p.id === "nadaun" && <span>{p.link.label}</span>}
+              <ArrowUpRight size={23} aria-hidden="true" />
             </a>
           )}
         </div>
