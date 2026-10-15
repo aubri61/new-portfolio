@@ -11,7 +11,7 @@ export const nadaun: Project = {
   role: "단독 풀스택 개발 / 사용자 웹·관리자 웹·API",
   period: "2025.10 — 2026.02",
   stack: ["Next.js", "TypeScript", "NestJS", "Prisma", "PostgreSQL", "TanStack Query", "Zustand", "Axios", "pnpm", "Turborepo", "GitHub Actions", "AWS EC2", "PM2"],
-  link: { label: "서비스 방문", url: "https://nadaun.life/" },
+  link: { label: "라이브 서비스 보기", url: "https://nadaun.life/" },
   slides: [
     {
       kind: "overview", label: "Overview", title: "사용자 웹·관리자 웹·API까지, 서비스 End-to-End 개발",
@@ -62,6 +62,5 @@ export const nadaun: Project = {
       nadaunVisual: "performance",
     },
   ],
-  gallery: [{ title: "모바일 웹 · 클래스 상세", description: "클래스 안내·일정·코치 정보를 표시한 실제 사용자 웹 화면", image: "/projects/nadaun.png", alt: "나다운 모바일 웹 클래스 상세 실제 화면" }],
   todos: [],
 };

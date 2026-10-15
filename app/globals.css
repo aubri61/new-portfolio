@@ -470,6 +470,18 @@ ul {
   border-color: var(--blue);
   color: white;
 }
+.nadaun-service-link {
+  width: auto;
+  flex-shrink: 0;
+  gap: 8px;
+  padding: 0 16px;
+  border-color: var(--blue);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
 .project-meta {
   display: grid;
   grid-template-columns: 1fr 0.8fr 1.65fr;
